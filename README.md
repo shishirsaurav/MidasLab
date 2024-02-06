@@ -106,9 +106,35 @@ In this file, the following services have been defined:
 Please review the tags of the used images and set them to the same as you're running in production.
 
 
-##create a account
-calling the api:localhost:9090/accounts
+## create a account
 
-Callling the service of create account and following the temporal workflow to create a account.
+To create an account, make an HTTP POST request to the endpoint localhost:9090/accounts.
 
-Caaling the stripe payent integration and creating the account and get the providerId which saving to the account table.
+This endpoint triggers the creation of an account by calling the createUserAccount API.
+
+The process involves invoking the Temporal workflow to orchestrate the account creation and integration with the Stripe payment provider to obtain a providerId, which is then saved to the account table.
+
+## Implementation Approach
+
+The application follows a microservices architecture, utilizing Spring Boot for the backend. 
+
+Temporal is used to manage workflows asynchronously, and Stripe is integrated for payment functionality.
+
+The code is structured following best practices, with clear separation of concerns between controllers, services, workflows, activities and providers.
+
+## Assumptions
+
+The provided code includes the necessary logic for creating user accounts, orchestrating workflows with Temporal, and integrating with the Stripe API for payment functionality.
+
+
+
+## Future Improvements
+
+
+Enhance error handling and implement retry mechanisms for better fault tolerance.
+
+Add input validation and security measures to handle potential issues.
+
+Expand testing coverage to include unit tests, integration tests, and edge cases.
+
+Provide more detailed logging for better debugging and monitoring.
